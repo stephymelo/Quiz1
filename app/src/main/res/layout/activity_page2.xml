@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Page2">
+
+    <TextView
+        android:id="@+id/nuevoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Nuevo Registro"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizHeader" />
+
+    <Button
+        android:id="@+id/continueButton2"
+        android:layout_width="276dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="436dp"
+        android:layout_marginBottom="68dp"
+        android:background="@drawable/colorbutton"
+        android:text="Continuar"
+        android:textAllCaps="false"
+        android:textColor="#16616E"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizHeader" />
+
+    <TextView
+        android:id="@+id/quizHeader"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:background="@drawable/header"
+        android:paddingTop="10dp"
+        android:text="Quiz 1"
+        android:textAlignment="center"
+        android:textColor="#106E88"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Introduzca la siguiente informacion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nuevoTitle" />
+
+    <EditText
+        android:id="@+id/nameEdit"
+        android:layout_width="268dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text" />
+
+    <EditText
+        android:id="@+id/identiEdit"
+        android:layout_width="270dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:hint="Identificacion"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameEdit" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Page3">
+
+    <CheckBox
+        android:id="@+id/checkNexo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/checkbox"
+        android:buttonTint="#E3F4F2"
+        android:padding="10dp"
+        android:text="Estuve en contacto con alguien con coronavirus"
+        android:textColor="#2A4251"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text" />
+
+    <CheckBox
+        android:id="@+id/checkNexo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/checkbox"
+        android:buttonTint="#E3F4F2"
+        android:padding="10dp"
+        android:text="Hice un viaje internacional"
+        android:textColor="#2A4251"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.143"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkNexo1" />
+
+    <CheckBox
+        android:id="@+id/checkNexo3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/checkbox"
+        android:buttonTint="#E3F4F2"
+        android:padding="10dp"
+        android:text="Hice un viaje nacional"
+        android:textColor="#2A4251"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkNexo2" />
+
+    <CheckBox
+        android:id="@+id/checkNexo4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/checkbox"
+        android:buttonTint="#E3F4F2"
+        android:padding="10dp"
+        android:text="Soy trabajador de la salud"
+        android:textColor="#2A4251"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.147"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkNexo3" />
+
+    <CheckBox
+        android:id="@+id/checkNexo5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/checkbox"
+        android:buttonTint="#E3F4F2"
+        android:padding="10dp"
+        android:text="Ninguna de las anteriores"
+        android:textColor="#2A4251"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkNexo4" />
+
+    <TextView
+        android:id="@+id/nexoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Nexo Epidemiologico"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizHeader2" />
+
+    <TextView
+        android:id="@+id/quizHeader2"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:background="@drawable/header"
+        android:paddingTop="10dp"
+        android:text="Quiz 1"
+        android:textAlignment="center"
+        android:textColor="#106E88"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/continuarButton3"
+        android:layout_width="276dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="68dp"
+        android:background="@drawable/colorbutton"
+        android:text="Continuar"
+        android:textAllCaps="false"
+        android:textColor="#16616E"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkNexo5"
+        app:layout_constraintVertical_bias="0.742" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Elige las opciones que apliquen a tu caso:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nexoTitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
