@@ -13,7 +13,8 @@ public class MainActivity extends AppCompatActivity {
     private Button continuar;
     private TextView resultados;
     private String name;
-    private String nameSet;
+    private String re;
+    private PuntajeRiesgo puntaje;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         continuar=findViewById(R.id.continueButton);
         resultados=findViewById(R.id.resultadoText);
-
+        puntaje=new PuntajeRiesgo();
         continuar.setOnClickListener(
                 (v)->{     Intent b=new Intent(this,Page2.class);
                     startActivity(b);
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
         );
-
+     resultadosText();
 
 
     }
@@ -45,4 +46,11 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+    public void resultadosText(){
+        re=String.valueOf(puntaje.getSumaTotal());
+        resultados.setText(re);
+    }
+
+
 }
