@@ -1,6 +1,7 @@
 package com.example.quizme;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -8,11 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import static com.example.quizme.Page2.SHARED_PREFS;
+import static com.example.quizme.Page2.TEXT;
+
 public class MainActivity extends AppCompatActivity {
-    private static final int CODE=0;
+
     private Button continuar;
     private TextView resultados;
-    private String name;
+    private String namesito;
     private String re;
     private PuntajeRiesgo puntaje;
 
@@ -31,26 +35,23 @@ public class MainActivity extends AppCompatActivity {
                 }
 
         );
+        loadData();
      resultadosText();
 
 
+
     }
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==CODE && resultCode==RESULT_OK){
-            name=data.getExtras().getString("name");
 
-            if(name.equals("blanco")){
-
-            }
-
-        }
-    }
 
     public void resultadosText(){
         re=String.valueOf(puntaje.getSumaTotal());
-        resultados.setText(re);
+        resultados.setText(namesito);
     }
+    public void loadData(){
+        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        namesito=sharedPreferences.getString(TEXT,"");
+    }
+
 
 
 }

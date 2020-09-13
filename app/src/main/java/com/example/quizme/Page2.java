@@ -1,6 +1,7 @@
 package com.example.quizme;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -12,14 +13,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Page2 extends AppCompatActivity {
 
     private EditText nameEdit;
     private EditText identiEdit;
     private Button continuarButton2;
-    ArrayList<String> namesitos = new ArrayList<String>();
-    ArrayList<String> identis = new ArrayList<String>();
+    public static final String SHARED_PREFS="sharedPrefs";
+    public static final String TEXT="text";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +32,11 @@ public class Page2 extends AppCompatActivity {
         nameEdit=findViewById(R.id.nameEdit);
         identiEdit=findViewById(R.id.identiEdit);
         continuarButton2=findViewById(R.id.continueButton2);
+        List<String> datos=new ArrayList<>();
+        datos.add(nameEdit.getText().toString());
+        datos.add(identiEdit.getText().toString());
 
-        String name=nameEdit.getText().toString();
-        String identi=identiEdit.getText().toString();
+
 
 
         continuarButton2.setOnClickListener(
@@ -39,6 +45,14 @@ public class Page2 extends AppCompatActivity {
 //                    b.putExtra("id", (Serializable) identiEdit);
                     startActivity(b);
                     overridePendingTransition(R.anim.transitionentrada,R.anim.transition);
+
+                    StringBuilder stringBuilder=new StringBuilder();
+                    for(String s : datos){
+                        stringBuilder.append(s);
+                        stringBuilder.append(",");
+                    }
+
+
                     guardarDatos();
 
 
@@ -50,10 +64,19 @@ public class Page2 extends AppCompatActivity {
     }
 
     public void guardarDatos(){
-        namesitos.add(nameEdit.getText().toString());
-        identis.add(identiEdit.getText().toString());
-        Log.e("name",""+namesitos.get(0));
+
+
+        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+
+        editor.putString(TEXT,nameEdit.getText().toString());
+        editor.putString(TEXT,identiEdit.getText().toString());
+        editor.apply();
+
+
 
     }
+
+
 
 }
