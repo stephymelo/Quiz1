@@ -20,8 +20,10 @@ public class Page2 extends AppCompatActivity {
     private EditText nameEdit;
     private EditText identiEdit;
     private Button continuarButton2;
+    private ArrayList<Names>usuarios=new ArrayList<>();;
     public static final String SHARED_PREFS="sharedPrefs";
     public static final String TEXT="text";
+
 
 
 
@@ -32,31 +34,23 @@ public class Page2 extends AppCompatActivity {
         nameEdit=findViewById(R.id.nameEdit);
         identiEdit=findViewById(R.id.identiEdit);
         continuarButton2=findViewById(R.id.continueButton2);
-        List<String> datos=new ArrayList<>();
-        datos.add(nameEdit.getText().toString());
-        datos.add(identiEdit.getText().toString());
+
+
+
+
+
+
 
 
 
 
         continuarButton2.setOnClickListener(
+
                 (v)->{     Intent b=new Intent(this,Page3.class);
-//                    b.putExtra("name", (Serializable) nameEdit);
-//                    b.putExtra("id", (Serializable) identiEdit);
-                    startActivity(b);
-                    overridePendingTransition(R.anim.transitionentrada,R.anim.transition);
-
-                    StringBuilder stringBuilder=new StringBuilder();
-                    for(String s : datos){
-                        stringBuilder.append(s);
-                        stringBuilder.append(",");
-                    }
-
-
                     guardarDatos();
 
-
-
+                    startActivity(b);
+                    overridePendingTransition(R.anim.transitionentrada,R.anim.transition);
                 }
 
         );
@@ -64,13 +58,19 @@ public class Page2 extends AppCompatActivity {
     }
 
     public void guardarDatos(){
-
+        usuarios.add(new Names(nameEdit.getText().toString(),identiEdit.getText().toString(),"PUNTAJE"));
 
         SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
         SharedPreferences.Editor editor= sharedPreferences.edit();
 
-        editor.putString(TEXT,nameEdit.getText().toString());
-        editor.putString(TEXT,identiEdit.getText().toString());
+        String concatusers = "";
+        for(int i=0;i<usuarios.size();i++) {
+            concatusers+=(usuarios.get(i).getName()+" "+usuarios.get(i).getPuntaje()+",");
+        }
+        editor.putString(TEXT, concatusers);
+        Log.e("array","list"+usuarios.size());
+
+
         editor.apply();
 
 
