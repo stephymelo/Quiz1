@@ -13,16 +13,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
-import static com.example.quizme.Page2.SHARED_PREFS;
-import static com.example.quizme.Page2.TEXT;
+import static com.example.quizme.Page4.SHARED_PREFS;
+import static com.example.quizme.Page4.TEXT;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button continuar;
     private TextView resultados;
     private String namesito;
-    private String re,texto;
+    private String re, texto;
 
     private PuntajeRiesgo puntaje;
 
@@ -30,24 +31,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        continuar=findViewById(R.id.continueButton);
-        resultados=findViewById(R.id.resultadoText);
-        puntaje=new PuntajeRiesgo();
-        texto="";
+        continuar = findViewById(R.id.continueButton);
+        resultados = findViewById(R.id.resultadoText);
+        puntaje = new PuntajeRiesgo();
+        texto = "";
+
         continuar.setOnClickListener(
-                (v)->{     Intent b=new Intent(this,Page2.class);
+                (v) -> {
+                    Intent b = new Intent(this, Page2.class);
                     startActivity(b);
-                    overridePendingTransition(R.anim.transitionentrada,R.anim.transition);
+                    overridePendingTransition(R.anim.transitionentrada, R.anim.transition);
 
                 }
 
         );
 
         new Thread(
-                ()-> {
+                () -> {
                     loadData();
-
-
 
 
                 }
@@ -56,36 +57,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void resultadosText() {
 
-
-    public void resultadosText(){
-        re=String.valueOf(puntaje.getSumaTotal());
 
     }
-    public void loadData(){
+
+    public void loadData() {
         runOnUiThread(
-                ()-> {
+                () -> {
 
-                    SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-                    String wordsString=sharedPreferences.getString(TEXT,"");
+                    SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                    String wordsString = sharedPreferences.getString(TEXT, "");
+//                    Set<String> set = sharedPreferences.getStringSet("users", null);
+//                    List<String> sample=new ArrayList<String>(set);
 
-                    String[] users=wordsString.split(",");
-                    for(int i=0;i<users.length;i++){
-                        texto+=users[i]+"\n";
-
+                    String[] users = wordsString.split(",");
+                    for (int i = 0; i < users.length; i++) {
+                        texto += users[i] + "\n";
                     }
-
                     resultados.setText(texto);
                 }
         );
 
 
-
-
-
-
     }
-
 
 
 }

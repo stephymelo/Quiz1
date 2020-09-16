@@ -1,44 +1,44 @@
 package com.example.quizme;
 
 public class PuntajeRiesgo {
-    private int opcion1N,opcion2N,opcion3N,opcion4N,opcion5N;
-    private int opcion1S,opcion2S,opcion3S,opcion4S,opcion5S,opcion6S,opcion7S;
+    private int opcion1N, opcion2N, opcion3N, opcion4N, opcion5N;
+    private int opcion1S, opcion2S, opcion3S, opcion4S, opcion5S, opcion6S, opcion7S;
     private int sumaTotal;
     private int sumaSin;
     private int sumaNexo;
 
 
+    public PuntajeRiesgo() {
+        this.opcion1N = opcion1N;
+        this.opcion2N = opcion2N;
+        this.opcion3N = opcion3N;
+        this.opcion4N = opcion4N;
+        this.opcion5N = opcion5N;
+        this.opcion1S = opcion1S;
+        this.opcion2S = opcion2S;
+        this.opcion3S = opcion3S;
+        this.opcion4S = opcion4S;
+        this.opcion5S = opcion5S;
+        this.opcion6S = opcion6S;
+        this.opcion7S = opcion7S;
+        this.sumaTotal = sumaTotal;
+        sumaSin = 0;
+        sumaNexo = 0;
 
-    public PuntajeRiesgo(){
-        opcion1N=3;
-        opcion2N=3;
-        opcion3N=3;
-        opcion4N=4;
-        opcion5N=0;
-        opcion1S=4;
-        opcion2S=4;
-        opcion3S=4;
-        opcion4S=4;
-        opcion5S=4;
-        opcion6S=4;
-        opcion7S=0;
-        sumaTotal();
         sumaSintomas();
         sumaNexo();
     }
 
-public void sumaTotal(){
-        sumaTotal=sumaSin+sumaNexo;
 
-}
-public void sumaSintomas(){
-    sumaSin=opcion1S+opcion2S+opcion3S+opcion4S+opcion5S+opcion6S+opcion7S;
+    public void sumaSintomas() {
+        sumaSin = opcion1S + opcion2S + opcion3S + opcion4S + opcion5S + opcion6S + opcion7S;
 
-}
-public void sumaNexo(){
-        sumaNexo= opcion1N+opcion2N+opcion3N+opcion4N+opcion5N;
+    }
 
-}
+    public void sumaNexo() {
+        sumaNexo = opcion1N + opcion2N + opcion3N + opcion4N + opcion5N;
+
+    }
 
     public int getOpcion1N() {
         return opcion1N;

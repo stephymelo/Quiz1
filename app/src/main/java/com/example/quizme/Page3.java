@@ -10,11 +10,13 @@ import android.widget.CheckBox;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Page3 extends AppCompatActivity {
     private Button continuarButton3;
-    private CheckBox nexo1,nexo2,nexo3,nexo4,nexo5;
-
+    private CheckBox nexo1, nexo2, nexo3, nexo4, nexo5;
+    private PuntajeRiesgo puntajeRiesgo;
+    private String name, id;
 
 
     @Override
@@ -22,23 +24,28 @@ public class Page3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page3);
 
-        continuarButton3=findViewById(R.id.continuarButton3);
-        nexo1=findViewById(R.id.checkNexo1);
-        nexo2=findViewById(R.id.checkNexo2);
-        nexo3=findViewById(R.id.checkNexo3);
-        nexo4=findViewById(R.id.checkNexo4);
-        nexo5=findViewById(R.id.checkNexo5);
-//        String name=getIntent().getExtras().getString("name");
-//        String id=getIntent().getExtras().getString("id");
-//        Serializable namesito =getIntent().getExtras().getSerializable("name");
+        continuarButton3 = findViewById(R.id.continuarButton3);
+        nexo1 = findViewById(R.id.checkNexo1);
+        nexo2 = findViewById(R.id.checkNexo2);
+        nexo3 = findViewById(R.id.checkNexo3);
+        nexo4 = findViewById(R.id.checkNexo4);
+        nexo5 = findViewById(R.id.checkNexo5);
+        puntajeRiesgo = new PuntajeRiesgo();
+        name = getIntent().getStringExtra("name");
+        id = getIntent().getStringExtra("id");
 
 
-      seleccionar();
+        seleccionar();
 
         continuarButton3.setOnClickListener(
-                (v)->{     Intent b=new Intent(this,Page4.class);
+                (v) -> {
+                    Intent b = new Intent(this, Page4.class);
+                    puntajeRiesgo.sumaNexo();
+                    b.putExtra("name", name);
+                    b.putExtra("id", id);
+                    b.putExtra("sumaNexo", puntajeRiesgo.getSumaNexo());
                     startActivity(b);
-                    overridePendingTransition(R.anim.transitionentrada,R.anim.transition);
+                    overridePendingTransition(R.anim.transitionentrada, R.anim.transition);
 
 
                 }
@@ -53,33 +60,44 @@ public class Page3 extends AppCompatActivity {
         boolean checked = ((CheckBox) view).isChecked();
 
         // Check which checkbox was clicked
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.checkNexo1:
-                if(checked){
-                    Log.e("check","check");
+                if (checked) {
+                    puntajeRiesgo.setOpcion1N(3);
                 }
 
-            break;
+                break;
             case R.id.checkNexo2:
+                if (checked) {
+                    puntajeRiesgo.setOpcion2N(3);
+                }
 
                 break;
             case R.id.checkNexo3:
+                if (checked) {
+                    puntajeRiesgo.setOpcion3N(3);
+                }
 
                 break;
             case R.id.checkNexo4:
+                if (checked) {
+                    puntajeRiesgo.setOpcion4N(3);
+                }
 
                 break;
             case R.id.checkNexo5:
+                if (checked) {
+                    puntajeRiesgo.setOpcion5N(0);
+                }
 
                 break;
 
         }
 
-        if(nexo1.isChecked()|| nexo2.isChecked() || nexo3.isChecked() || nexo4.isChecked() || nexo5.isChecked() ){
+        if (nexo1.isChecked() || nexo2.isChecked() || nexo3.isChecked() || nexo4.isChecked() || nexo5.isChecked()) {
             continuarButton3.setBackgroundResource(R.drawable.colorbutton);
             continuarButton3.setEnabled(true);
-        }
-        else{
+        } else {
             continuarButton3.setBackgroundResource(R.drawable.colorbuttonoff);
             continuarButton3.setEnabled(false);
         }
@@ -100,7 +118,7 @@ public class Page3 extends AppCompatActivity {
 
     }
 
-    }
+}
 
 
 
