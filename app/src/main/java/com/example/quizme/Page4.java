@@ -68,32 +68,32 @@ public class Page4 extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.sintomasCheck1:
                 if (checked) {
-                    puntajeRiesgo.setOpcion1S(3);
+                    puntajeRiesgo.setOpcion1S(4);
                 }
                 break;
             case R.id.sintomasCheck2:
                 if (checked) {
-                    puntajeRiesgo.setOpcion2S(3);
+                    puntajeRiesgo.setOpcion2S(4);
                 }
                 break;
             case R.id.sintomasCheck3:
                 if (checked) {
-                    puntajeRiesgo.setOpcion3S(3);
+                    puntajeRiesgo.setOpcion3S(4);
                 }
                 break;
             case R.id.sintomasCheck4:
                 if (checked) {
-                    puntajeRiesgo.setOpcion4S(3);
+                    puntajeRiesgo.setOpcion4S(4);
                 }
                 break;
             case R.id.sintomasCheck5:
                 if (checked) {
-                    puntajeRiesgo.setOpcion5S(3);
+                    puntajeRiesgo.setOpcion5S(4);
                 }
                 break;
             case R.id.sintomasCheck6:
                 if (checked) {
-                    puntajeRiesgo.setOpcion6S(3);
+                    puntajeRiesgo.setOpcion6S(4);
                 }
                 break;
 
