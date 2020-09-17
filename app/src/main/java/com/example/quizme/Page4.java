@@ -132,21 +132,31 @@ public class Page4 extends AppCompatActivity {
     }
 
     public void guardarDatos() {
-        usuarios.add(new Names(name, id, puntaje));
-        SharedPreferences sharedPreferences2 = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences2.edit();
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        String info=sharedPreferences.getString(TEXT,"");
+        if(info.isEmpty()){
 
+        }else{
+            String[]infoArray=info.split(",");
+            for(int i=0;i < infoArray.length;i++){
+                String[]param=infoArray[i].split(" ");
+                String name=param[0];
+                String id=param[1];
+                String puntaje=param[2];
+                Names names=new Names(name,id,puntaje);
+                usuarios.add(names);
+            }
+        }
+
+        usuarios.add(new Names(name, id, puntaje));
         String concatusers = "";
 
         for (int i = 0; i < usuarios.size(); i++) {
-            concatusers += (usuarios.get(i).getName() + " " + usuarios.get(i).getPuntaje() + ",");
+            concatusers += (usuarios.get(i).getName() +" "+usuarios.get(i).getId() + " "+usuarios.get(i).getPuntaje() + ",");
         }
-        Set<Names> set = new HashSet<>(usuarios.hashCode());
-        set.addAll(usuarios);
 
-        editor.putStringSet("users", set);
-        editor.commit();
-//        editor.putString(TEXT, concatusers);
+        editor.putString(TEXT, concatusers);
 
         editor.apply();
 

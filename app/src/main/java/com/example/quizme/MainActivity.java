@@ -63,24 +63,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadData() {
-        runOnUiThread(
-                () -> {
+
 
                     SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                     String wordsString = sharedPreferences.getString(TEXT, "");
-//                    Set<String> set = sharedPreferences.getStringSet("users", null);
-//                    List<String> sample=new ArrayList<String>(set);
-
                     String[] users = wordsString.split(",");
                     for (int i = 0; i < users.length; i++) {
                         texto += users[i] + "\n";
                     }
                     resultados.setText(texto);
                 }
-        );
+
 
 
     }
 
 
-}
