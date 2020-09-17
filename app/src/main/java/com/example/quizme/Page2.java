@@ -38,6 +38,7 @@ public class Page2 extends AppCompatActivity {
         continuarButton2 = findViewById(R.id.continueButton2);
         id="";
 
+
         continuarButton2.setOnClickListener(
 
                 (v) -> {

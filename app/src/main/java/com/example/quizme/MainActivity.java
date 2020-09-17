@@ -3,12 +3,14 @@ package com.example.quizme;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ScrollingView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -22,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
 
     private Button continuar;
     private TextView resultados;
-    private String namesito;
-    private String re, texto;
-
+    private String  texto;
     private PuntajeRiesgo puntaje;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +38,13 @@ public class MainActivity extends AppCompatActivity {
         puntaje = new PuntajeRiesgo();
         texto = "";
 
+        resultados.setMovementMethod(new ScrollingMovementMethod());
+
         continuar.setOnClickListener(
                 (v) -> {
                     Intent b = new Intent(this, Page2.class);
                     startActivity(b);
                     overridePendingTransition(R.anim.transitionentrada, R.anim.transition);
-
                 }
 
         );
@@ -50,15 +53,8 @@ public class MainActivity extends AppCompatActivity {
                 () -> {
                     loadData();
 
-
                 }
         ).start();
-
-    }
-
-
-    public void resultadosText() {
-
 
     }
 
